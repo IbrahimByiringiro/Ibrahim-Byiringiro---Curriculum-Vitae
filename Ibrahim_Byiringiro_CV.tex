@@ -1,0 +1,285 @@
+%=====================================================================
+%  Ibrahim Byiringiro — Comprehensive Curriculum Vitae
+%  Compile with pdfLaTeX (works on Overleaf out of the box).
+%=====================================================================
+\documentclass[10pt,letterpaper]{article}
+
+%---------------------------- Packages -------------------------------
+\usepackage[letterpaper,top=0.55in,bottom=0.7in,left=0.65in,right=0.65in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+% Font: Source Sans Pro if available (Overleaf has it), else Helvetica
+\IfFileExists{sourcesanspro.sty}
+  {\usepackage[default,semibold]{sourcesanspro}}
+  {\usepackage[scaled=0.92]{helvet}\renewcommand{\familydefault}{\sfdefault}}
+
+% Icons: Font Awesome 5 if available, else simple fallbacks
+\IfFileExists{fontawesome5.sty}{%
+  \usepackage{fontawesome5}
+  \newcommand{\icLoc}{\faMapMarker*}
+  \newcommand{\icPhone}{\faPhone}
+  \newcommand{\icMail}{\faEnvelope}
+  \newcommand{\icWeb}{\faGlobe}
+}{%
+  \usepackage{marvosym}
+  \newcommand{\icLoc}{\textbullet}
+  \newcommand{\icPhone}{\Mobilefone}
+  \newcommand{\icMail}{\Letter}
+  \newcommand{\icWeb}{\ComputerMouse}
+}
+
+%---------------------------- Colours --------------------------------
+\definecolor{navy}{HTML}{14213D}
+\definecolor{accent}{HTML}{0F7C8C}   % deep teal
+\definecolor{gold}{HTML}{F2A541}
+\definecolor{ink}{HTML}{2B2D33}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{chip}{HTML}{E6F2F3}
+\color{ink}
+
+\hypersetup{pdftitle={Ibrahim Byiringiro - Curriculum Vitae},
+            pdfauthor={Ibrahim Byiringiro}}
+
+%---------------------------- Layout ---------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.06}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{muted}Ibrahim Byiringiro \,\textbullet\, Curriculum Vitae}
+\fancyfoot[R]{\footnotesize\color{muted}\thepage\,/\,\pageref{LastPage}}
+
+% Section headings: teal bar + navy caps + hairline rule
+\titleformat{\section}
+  {\color{navy}\large\bfseries\scshape}
+  {}{0pt}
+  {\textcolor{accent}{\rule[-0.15em]{3pt}{1.05em}}\hspace{6pt}}
+  [\vspace{-6pt}{\color{accent!35}\rule{\linewidth}{0.6pt}}]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Bullet lists
+\setlist[itemize]{leftmargin=1.1em,itemsep=1.6pt,parsep=0pt,topsep=2pt,
+  label={\color{accent}\scriptsize$\blacktriangleright$}}
+
+%---------------------------- Macros ---------------------------------
+% \job{Organisation}{Location}{Role}{Dates}
+\newcommand{\job}[4]{%
+  \par\vspace{4pt}
+  {\color{navy}\bfseries\large #1}\hfill{\color{muted}\small #2}\par\vspace{1pt}
+  {\color{accent}\bfseries #3}\hfill{\small\bfseries\color{ink} #4}\par\vspace{1pt}}
+
+% \project{Title}{Dates}
+\newcommand{\project}[2]{%
+  \par\vspace{5pt}
+  {\bfseries\color{navy} #1}\hfill{\small\color{muted}\itshape #2}\par}
+
+% \entry{Bold left}{right}{detail line}
+\newcommand{\entry}[3]{%
+  \par\vspace{4pt}
+  {\bfseries\color{navy} #1}\hfill{\small\color{muted} #2}\par
+  {\small #3}\par}
+
+% Skill chip
+\newcommand{\chip}[1]{%
+  \tikz[baseline=(c.base)]\node[fill=chip,text=navy,rounded corners=2.5pt,
+    inner xsep=4pt,inner ysep=1.6pt,font=\footnotesize\bfseries](c){#1};\hspace{1pt}}
+
+% Small caps label used in tables
+\newcommand{\lbl}[1]{\leavevmode{\color{navy}\bfseries #1}}
+% \pub{Year}{Title}  /  \svc{Text}{Dates}
+\newcommand{\pub}[2]{\par\vspace{2.5pt}\hangindent=1.45cm\hangafter=1\makebox[1.45cm][l]{\color{accent}\bfseries #1}#2\par}
+\newcommand{\svc}[2]{\par\vspace{2.5pt}#1\hfill{\small\color{muted}#2}\par}
+
+%=====================================================================
+\begin{document}
+
+%---------------------------- Header ---------------------------------
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[accent] ([yshift=-1.55in]current page.north west) rectangle ([yshift=-1.58in]current page.north east);
+  \fill[gold]   ([yshift=-1.55in]current page.north west) rectangle ([xshift=1.6in,yshift=-1.58in]current page.north west);
+\end{tikzpicture}
+
+\vspace*{-0.12in}
+{\color{ink}
+  {\fontsize{30}{34}\selectfont\bfseries\color{navy} IBRAHIM \textcolor{accent}{BYIRINGIRO}}\par\vspace{5pt}
+  {\large\color{navy} Data Scientist \;\textcolor{gold}{|}\; Statistician \;\textcolor{gold}{|}\; Research \& Data Analyst \;\textcolor{gold}{|}\; Analytics \& Automation}\par\vspace{8pt}
+  {\small
+    \textcolor{accent}{\icLoc}\, Boston, Massachusetts \qquad
+    \textcolor{accent}{\icMail}\, \href{mailto:contact.ibrahimbyiringiro@gmail.com}{contact.ibrahimbyiringiro@gmail.com} \qquad
+    \textcolor{accent}{\icWeb}\, \href{https://www.ibrahimbyiringiro.dev}{ibrahimbyiringiro.dev}}\par
+}
+\vspace{0.28in}
+
+%---------------------------- Profile --------------------------------
+\section{Professional Profile}
+Data scientist, statistician, and researcher with 15+ years of experience across education, international development, data governance, and business analytics modernization. Former Research \& Data Analyst at the \textbf{City of Boston (BPS)} and a.g Director of statistical methods and research at the \textbf{Rwanda Bureau of Statistics (NISR)}. Experienced in translating complex administrative and survey data into practical decision-support systems, building repeatable data pipelines, designing dashboards, improving data quality, training stakeholders, and leading multidisciplinary statistical initiatives. Currently pursuing an \textbf{M.S.\ in Data Science} at Northeastern University.
+
+%---------------------------- Expertise ------------------------------
+\section{Core Expertise}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.3cm}X@{}}
+\lbl{Statistical Methods \& data governance} & Quantitative \& qualitative research methodology design, sampling techniques, data quality assurance, metadata and dissemination. \\
+\lbl{Socio-economic analytics} & Poverty Analysis, Demographic analysis, and Education analytics (including service delivery, scheduling and compliance, assessment monitoring, program access and performance indicators). \\
+\lbl{Leadership \& governance} & Technical supervision, cross-functional partnerships, capacity building, data-access reviews, anonymization, non-disclosure agreements, privacy protection, stakeholder communication. \\
+\lbl{Languages \& platforms} & \chip{SQL}\chip{R}\chip{Python}\chip{Stata}\chip{SPSS}\chip{Latex}\chip{Snowflake}\chip{SQL Server}\chip{BigQuery}\chip{DBeaver}\chip{GitHub}\chip{Apps Script}\chip{CSPro} \\
+\lbl{BI \& workflows} & \chip{Power BI}\chip{Looker Studio}\chip{Tableau}\chip{Google Sheets}\chip{Excel}\chip{ETL}\chip{Automated reporting}\chip{Data validation} \\
+\end{tabularx}
+
+%---------------------------- Experience -----------------------------
+\section{Professional Experience}
+
+\job{City of Boston (BPS)}{Boston, MA}
+    {Research \& Data Analyst --- Office of Data \& Accountability(ODA)}{2021 -- 2026}
+{\small\itshape\color{muted} Focus: Data Analytics and governance, assessment and compliance reporting, and data systems}
+\begin{itemize}
+  \item Designed and maintained analytical products for district leaders, school administrators, and the Office of Multilingual and Multicultural Education (OMME), supporting programming, service delivery, assessments, and equity-focused decisions.
+  \item Developed interactive \textbf{Power BI} and \textbf{Looker Studio} dashboards fed by Snowflake, SQL Server, and BigQuery, cutting certain data-request turnaround times from \textbf{days to real-time access}.
+  \item Wrote user guides and built data literacy of stakeholders, contributing to a \textbf{significant reduction in data requests}.
+  \item Built standardized Google Sheets, Forms, and Apps Script workflows to streamline school-level data collection, imports \& exports, sharing, permissions, and recurring reporting.
+  \item Conducted data-quality reviews, validation, peer code review, and policy/compliance analyses, including a \textbf{high improvement} in the Department of Justice (DoJ) monitored compliance rate.
+  \item Partnered with ODA, OMME, BPS Technology, Assessment teams, schools, and district leadership to translate policy and operational needs into business rules and data products.
+\end{itemize}
+
+\vspace{4pt}
+{\color{accent}\bfseries\small\scshape Selected projects}
+
+\project{ACCESS for ELLs Assessment: Operation Support, Dashboards \& Performance Reporting}{Yearly since 2021 - 2026}
+{\small \textbf{Designed and Built The District's First:}}
+\begin{itemize}
+  \item \textbf{Testing Completion Tracker:} an automated system created using DBeaver, appscript and google sheets for the assessment team and other district leaders to make timely operational decisions resulting in district highest records of completion rates of ~98 percent year-over-year.
+  \item \textbf{Power BI performance dashboards:} I led the district's move from static spreadsheets to interactive dashboards, with views broken down by region, entity type, school, student group, and domain (listening, speaking, reading, writing, and overall scores).
+  \item \textbf{Pre/post validation and id-matching workflows} that split school files, preserve spreadsheet formatting, and refresh school-specific deliverables.
+  \item Created lists of students eligible for accommodation and exemption for the ACCESS assessment from EdPlan.
+\end{itemize}
+
+\project{LAS Links Assessment Monitoring and Analysis}{Fall - Spring since 2024}
+{\small \textbf{Designed and Built The District's First:}}
+\begin{itemize}
+  \item \textbf{School-to-district tracking} for required and optional student groups, with grade and English Proficiency Levels (SDD) logic.
+  \item \textbf{Student performance analysis} using R programming and google sheets for visualization and interaction with data.
+  \item \textbf{Initial PowerBI dashboard} layout with district, transformation-status, region, and school aggregations.
+\end{itemize}
+
+\project{Multilingual Learner Service Compliance (for the DOJ Reporting)}{2x a year since 2021}
+\begin{itemize}
+  \item Analyzed student and teacher schedules, ESL instruction types, and compliance conditions for multilingual learner services.
+  \item Created Looker Studio monitoring dashboards: School level and District level dashboards that were updated regularly.
+  \item Supported the development of compliance methodologies used to generate the Department of Justice reports.
+  \item Produced Title I Reports, Aspen student conduct/OSS reporting, and recurring district analytics.
+  \item Reconciled student and school information using Snowflake dimensions, SQL Server, BigQuery assessment tables, and data modeling; built Power BI dimensions, sorting logic, and consistent entity mappings across consolidated schools.
+\end{itemize}
+
+\project{ESL Service Delivery Determination (SDD) \& School Workflows}{Yearly since 2023}
+\begin{itemize}
+  \item Built school level and centralized platforms that allowed schools staff to determine students proficiency levels and for the central office staff to validate school inputs.
+  \item The platforms included hidden logic, automated file splitting, data validation to ensure that schools were following the correct procedures and that the data was accurate.
+  \item Automated school-specific imports, folder permissions, and consolidated reporting using Apps Script.
+\end{itemize}
+
+\project{Automation \& Self-Service Data Products}{2022 -- 2026}
+\begin{itemize}
+  \item Developed Apps Script routines for LAS Links imports, district data grids, SDD imports, folder permissions, and pre/post assessment validation.
+  \item Created scalable spreadsheet workflows that combine school submissions and remove repetitive manual processing.
+\end{itemize}
+
+%------------------------------- NISR --------------------------------
+\job{National Institute of Statistics of Rwanda (NISR)}{International}
+    {Statistical Methods, Research \& Publication Leadership}{2013 -- 2019}
+{\small
+  \textbf{A.g Director}, Statistical Methods, Research \& Publication \hfill 2018 -- 2019\par
+  \textbf{Team Leader}, National Statistical System Coordination \& Capacity Building \hfill 2015 -- 2018\par}
+\begin{itemize}
+  \item Led national statistical methodology, research, publication, and statistical-system capacity building with government institutions and international stakeholders.
+  \item Led or contributed to the \textbf{Poverty Surveys(EICV) IV And V}: planning, design, census/GIS-informed sampling, field collection, analysis, and dissemination; used geographic data to monitor tablet-based enumerator coverage.
+  \item Planned and supervised \textbf{User Satisfaction Surveys III And IV} - qualitative research.
+  \item Co-developed the methodology for evaluating national and local government performance contracts (\textbf{Imihigo}); led the 2018 and 2019 evaluations.
+  \item Led technical coordination of the development of the \textbf{Third National Strategy for the Development of Statistics (NSDS3)} and contributed to the National Strategy for Transformation indicator framework.
+  \item Promoted international statistical classifications, standards, and methods; supported implementation of the \textbf{Rwanda Data Revolution Policy}.
+  \item Oversaw research applications, data-access reviews, NDAs, microdata release, anonymization, and PII protection, working with researchers, public institutions, and private partners.
+  \item Trained statistical-system staff, researchers, and policymakers; supervised statistical reports, metadata products, and statistical yearbooks for technical and non-technical audiences.
+\end{itemize}
+
+%------------------------------- UNSD --------------------------------
+\job{United Nations Statistics Division (UNSD) / PARIS21}{International}
+    {Consultant --- Advanced Data Planning Tool (ADAPT)}{2015 -- 2019}
+\begin{itemize}
+  \item Contributed to the design, development, deployment, and integration of ADAPT, a cloud platform for managing indicators and monitoring progress toward the UN Sustainable Development Goals.
+  \item Supported metadata design, database structures, backend templates, user interfaces, data validation, and platform improvement.
+  \item Worked with national statistics offices in \textbf{Rwanda, Tanzania, Jordan, and the Philippines}, training 10+ staff per country and providing ongoing support, including ADAPT training for the Tanzania Bureau of Statistics (DataLab) in Dar Es Salaam (2016).
+\end{itemize}
+
+%---------------------------- Education ------------------------------
+\section{Education}
+\entry{Northeastern University --- Khoury College of Computer Sciences}{Boston, MA}
+  {\textcolor{accent}{\bfseries Master of Science in Data Science} \hfill \textit{In progress}\\
+   Focus: machine learning, statistical modeling, computational methods, responsible and adaptive learning.}
+
+\entry{University of Rwanda --- College of Business and Economics}{Kigali, Rwanda}
+  {\textcolor{accent}{\bfseries B.Sc.\ (Honours), Applied Statistics (Statistics Applied to Economics)} \hfill 2011 -- 2014\\
+   GPA: 4.0}
+
+\entry{Additional Education}{}
+  {Statistics for Behavioral Sciences, Colorado State University (2015)}
+  {High school majors: Mathematics, Physics, Geography(2007--2009)}
+
+%------------------------- Certifications ----------------------------
+\section{Certifications \& Professional Development}
+\begin{itemize}
+  \item \textbf{IBM Data Science Professional Certificate} --- Coursera \hfill {\small\color{muted}2022} % CONFIRM: completion year
+  \item \textbf{Demographic Analysis \& Population Projections} --- U.S. Census Bureau % CONFIRM: date
+  \item \textbf{Advanced Data Management \& Analysis using Stata} --- SCG Ltd. % CONFIRM: date
+  \item International workshops: SDG user engagement \& monitoring (Jordan, 2019); Eastern Africa SDG indicators (Ethiopia, 2019); post-2015 SDG monitoring (Philippines, 2017).
+\end{itemize}
+
+%-------------------------- Publications -----------------------------
+\section{Selected Publications \& Institutional Reports}
+{\small\itshape\color{muted} Co-produced with NISR technical teams and collaborators.}\par\vspace{2pt}
+\pub{2019}{Third National Strategy for the Development of Statistics of Rwanda (NSDS3), 2019/20--2023/24}
+\pub{2019}{User Satisfaction Survey Report 2018/19}
+\pub{2019}{Rwanda Metadata Handbook: Indicators of National Strategy for Transformation and SDGs}
+\pub{2018}{2017/2018 National Performance Evaluation Final Report (Imihigo) --- NISR/IPAR technical team}
+\pub{2017}{User Satisfaction Survey Report 2016/17}
+\pub{2016}{Compendium of Statistical Concepts and Definitions, 1st edition}
+\pub{2015--18}{Rwanda Statistical Yearbooks (2015, 2016, 2017, 2018)}
+\pub{2015}{Rwanda Metadata Handbook: EDPRS 2 and MDGs, 2nd edition}
+
+%---------------------------- Service --------------------------------
+\section{Membership, Professional Service \& Leadership}
+\svc{\textbf{International Statistical Institute (ISI)} --- Elected Member}{2019 - present}
+\svc{\textbf{Economic Policy Research Network of Rwanda (EPRN)} --- Deputy Representative \& Board Member}{2016 -2020}
+\svc{\textbf{East African Community Secretariat} --- Member, Sectoral Committee on Statistics}{2016 -- 2019}
+\svc{\textbf{United Nations Statistics Division} --- Member, Development Account Project}{2015 -- 2019}
+\svc{\textbf{Government of Rwanda / UNDP} --- Technical Committee, National Human Development Report}{2018 -- 2019}
+\svc{\textbf{University of Rwanda Students Union} --- Vice Guild President of students council}{2012 -- 2014}
+\svc{\textbf{Applied Statistics Students Association, University of Rwanda} --- President and Vice president}{2012 -- 2014}
+
+%-------------------------- Awards -----------------------------------
+\section{Awards \& International Engagement}
+\begin{itemize}
+  \item \textbf{Best Employee of the Year}, Department of Statistical Methods, Research \& Publication, NISR \hfill {\small\color{muted}May 2018}
+  \item Statistical and user engagements (2014--2019) across \textbf{Tanzania, Jordan, the Philippines, Ethiopia, Uganda,} and \textbf{Germany}.
+  \item EAC statistical harmonization meetings, Arusha - Tanzania (2017, 2018); SDG reporting and capacity-development workshops in Addis Ababa - Ethiopia (2017--2019).
+\end{itemize}
+
+%------------------------ Languages & Interests ----------------------
+\section{Languages \& Research Interests}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{3.3cm}X@{}}
+\lbl{Languages} & \chip{English: Fluent}\chip{French: Moderate}\chip{Swahili: Moderate} \chip{Kinyarwanda: Native,}\\
+\lbl{Research interests} & Statistical foundations of machine learning; reinforcement learning, online learning and bandits; algorithmic fairness; safe and adaptive learning; educational equity analytics; And Business Intelligence. \\
+\end{tabularx}
+
+\end{document}
